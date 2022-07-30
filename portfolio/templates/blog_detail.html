@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+   {% block content %}
+   <header class="1-header">
+    <div class=".nav__log">
+            <H1>Blog</H1>
+    </div>      
+</header>
+<section class="post-header">
+    <div class="header-content post-container">
+        <!-- Back to Home Link -->
+        <a href="{% url 'index' %}" class="back-home">Back To Home</a>
+        <!-- Title -->
+        <h1 class="header-title">{{ blog_post.post_title }}</h1>
+        <!-- Post Image -->
+        <img src="{{ blog_post.post_img.url }}" class="header-img" alt="">
+        
+
+    </div>
+    </section>
+    <!-- Posts -->
+    <section class="post-content post-container">
+        <h2 class="sub-heading">Posted at {{ blog_post.post_date }}</h2>
+        <p class="post-text">
+            {{ blog_post.description|safe }}
+        </p>
+        <div class="footer__data">
+            <h2 class="share__title">Share this article on Social media</h2>
+        <a href="https://www.linkedin.com" target="_blank"  class="footer__social"><i class="uil uil-linkedin"></i></a>
+        <a href="https://twitter.com" target="_blank"  class="footer__social"><i class="uil uil-twitter"></i></a>
+        <a href="https://github.com/"  class="footer__social"><i class="uil uil-github"></i></a>
+        <a href="https://facebook.com/"  class="footer__social"><i class="uil uil-facebook"></i></a>
+
+        </div>
+
+    </section>
+   {% endblock content %}
+
